@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.alpharogroup</groupId>
+		<artifactId>mvn-java-parent</artifactId>
+		<version>2.8.0</version>
+		<relativePath></relativePath>
+	</parent>
+
+	<artifactId>redundant-file-entries-resolver</artifactId>
+	<version>2.0.0</version>
+
+	<properties>
+		<staging.dir>${project.build.directory}/staging</staging.dir>
+		<izpack-standalone.version>4.2.1-SNAPSHOT</izpack-standalone.version>
+	</properties>
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.find.duplicate.files.desktoppane.MainApplication</mainClass>
+							<packageName>com.find.duplicate.files.desktoppane</packageName>
+						</manifest>
+						<manifestEntries>
+							<mode>development</mode>
+							<url>${pom.url}</url>
+						</manifestEntries>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<!--
+					NOTE: We don't need a groupId specification because the group is
+					org.apache.maven.plugins ...which is assumed by default.
+				-->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.find.duplicate.files.desktoppane.MainApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<!--
+							this is used for inheritance merges
+						-->
+						<phase>package</phase>
+						<!--
+							append to the packaging phase.
+						-->
+						<goals>
+							<goal>attached</goal>
+							<!--
+							goals == mojos
+						    -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+
+			<!--
+
+
+			<plugin>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<version>1.0-alpha-5</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.izpack</groupId>
+						<artifactId>izpack-standalone-compiler</artifactId>
+						<version>${izpack-standalone.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<izpackBasedir>${staging.dir}</izpackBasedir>
+					<customPanelDirectory>${staging.dir}</customPanelDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>standard-installer</id>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			--><!--<plugin>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<version>1.0-alpha-5</version>
+				<configuration></configuration>
+			</plugin>
+
+		--></plugins>
+	</build>
+
+	<!--
+		<repositories> <repository> <id>springRichclientRepository</id>
+		<name>Spring rich client repository</name>
+		<url>http://spring-rich-c.sourceforge.net/maven2repository</url>
+		</repository> </repositories>
+	-->
+
+	<dependencies>
+		<!--
+			<dependency> <groupId>org.springframework.richclient</groupId>
+			<artifactId>spring-richclient-resources</artifactId>
+			<version>${springRichclient.version}</version> </dependency>
+			<dependency> <groupId>org.springframework.richclient</groupId>
+			<artifactId>spring-richclient-core</artifactId>
+			<version>${springRichclient.version}</version> </dependency>
+		--><!--
+		<dependency>
+			<groupId>com.jgoodies</groupId>
+			<artifactId>forms</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jgoodies</groupId>
+			<artifactId>looks</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		--><dependency>
+			<groupId>javax.help</groupId>
+			<artifactId>javahelp</artifactId>
+			<version>2.0.02</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.swinglabs</groupId>
+			<artifactId>swing-layout</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.swinglabs</groupId>
+			<artifactId>jxlayer</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.swinglabs</groupId>
+			<artifactId>swing-worker</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>org.codehaus.izpack</groupId>
+			<artifactId>izpack-standalone-compiler</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+	-->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jaulp</groupId> -->
+<!-- 			<artifactId>jaulp.swing</artifactId> -->
+<!-- 			<version>3.4.8</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>swing-components</artifactId>
+			<version>4.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.swinglabs</groupId>
+			<artifactId>swingx</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+	<dependency>
+		<groupId>de.alpharogroup</groupId>
+		<artifactId>file-worker</artifactId>
+		<version>4.8.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>de.alpharogroup</groupId>
+		<artifactId>jcommons-lang</artifactId>
+		<version>4.8.0</version>
+	</dependency>
+
+
+	</dependencies>
+
+</project>

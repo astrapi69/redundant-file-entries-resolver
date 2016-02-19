@@ -1,0 +1,6 @@
+F:\dev\workspaces\sourceforge\com.find.duplicate.files\dist\izpack\install.xml
+
+..\..\..\..\..\..\Programme\Izpack\bin\compile install.xml -b . -o install.jar -k standard
+
+#Diese Zeile führt das Kommando für die erstellung von install.jar aus.
+E:\Programme\Izpack\bin\compile F:\dev\workspaces\sourceforge\com.find.duplicate.files\dist\izpack\install.xml -b F:\dev\workspaces\sourceforge\com.find.duplicate.files\dist\izpack\ -o F:\dev\workspaces\sourceforge\com.find.duplicate.files\dist\izpack\install.jar -k standard

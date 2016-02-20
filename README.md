@@ -9,3 +9,5 @@ the files are going to be compared.
 - Compare arbitrary files byte by byte
 - Find duplicate large VIDEO or MP-3 files that shrinking your harddrives and save money and time
 - Compare existing files collections and find doublets or even triplets
+
+In companies administrators can seek the files from the employee for unnecessary file copies and redundant Backups.

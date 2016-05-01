@@ -22,13 +22,24 @@
 		<spring.version>2.5.6</spring.version>
 		<file-worker.version>4.8.0</file-worker.version>
 		<jcommons-lang.version>4.8.0</jcommons-lang.version>
+		<!-- Installer variables -->
 		<staging.dir>${project.build.directory}/staging</staging.dir>
-		<izpack-standalone.version>4.2.1-SNAPSHOT</izpack-standalone.version>
+		<info.appName>Duplicate-Files-Finder</info.appName>
+		<info.appsubpath>dist/standard</info.appsubpath>
+		<izpack.dir.app>${basedir}/src/main/izpack</izpack.dir.app>
+		<staging.dir.app>${staging.dir}</staging.dir.app>
 	</properties>
 
 	<dependencyManagement>
 
 		<dependencies>
+
+			<dependency>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-panel</artifactId>
+				<!-- <version>${izpack-panel.version}</version> -->
+				<version>${izpack-maven-plugin.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>javax.help</groupId>
@@ -144,59 +155,216 @@
 
 
 	<build>
+
+		<finalName>${info.appName}</finalName>
+
+
+		<pluginManagement>
+
+			<plugins>
+
+				<plugin>
+					<groupId>org.codehaus.izpack</groupId>
+					<artifactId>izpack-maven-plugin</artifactId>
+					<extensions>true</extensions>
+					<configuration>
+						<baseDir>${staging.dir.app}</baseDir>
+						<installFile>${izpack.dir.app}/install.xml</installFile>
+						<outputDirectory>${project.build.directory}</outputDirectory>
+						<finalName>${project.build.finalName}</finalName>
+						<enableOverrideArtifact>true</enableOverrideArtifact>
+						<mkdirs>true</mkdirs>
+						<autoIncludeUrl>false</autoIncludeUrl>
+						<autoIncludeDevelopers>false</autoIncludeDevelopers>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>default-cli</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<copy todir="${staging.dir}">
+										<fileset dir="${izpack.dir.app}" />
+									</copy>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<configuration>
+						<outputDirectory>${staging.dir}/lib</outputDirectory>
+						<excludeTransitive>true</excludeTransitive>
+						<stripVersion>true</stripVersion>
+						<overWriteReleases>true</overWriteReleases>
+						<overWriteSnapshots>true</overWriteSnapshots>
+						<overWriteIfNewer>true</overWriteIfNewer>
+						<excludeScope>system</excludeScope>
+					</configuration>
+					<executions>
+						<execution>
+							<id>copy</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
+								<packageName>de.alpharogroup.duplicate.files.desktoppane</packageName>
+							</manifest>
+							<manifestEntries>
+								<mode>development</mode>
+								<url>${pom.url}</url>
+							</manifestEntries>
+							<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<!-- NOTE: We don't need a groupId specification because the group is 
+						org.apache.maven.plugins ...which is assumed by default. -->
+					<artifactId>maven-assembly-plugin</artifactId>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<archive>
+							<manifest>
+								<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<!-- this is used for inheritance merges -->
+							<phase>package</phase>
+							<!-- append to the packaging phase. -->
+							<goals>
+								<goal>attached</goal>
+								<!-- goals == mojos -->
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+			</plugins>
+
+		</pluginManagement>
+
+		<defaultGoal>package</defaultGoal>
+		<sourceDirectory>${basedir}/src/main/resources</sourceDirectory>
+
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<extensions>true</extensions>
 				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>com.find.duplicate.files.desktoppane.MainApplication</mainClass>
-							<packageName>com.find.duplicate.files.desktoppane</packageName>
-						</manifest>
-						<manifestEntries>
-							<mode>development</mode>
-							<url>${pom.url}</url>
-						</manifestEntries>
-						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-					</archive>
-				</configuration>
-			</plugin>
+					<baseDir>${staging.dir.app}</baseDir>
+					<installFile>${izpack.dir.app}/install.xml</installFile>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+					<finalName>${project.build.finalName}</finalName>
+					<enableOverrideArtifact>true</enableOverrideArtifact>
+					<mkdirs>true</mkdirs>
+					<autoIncludeUrl>false</autoIncludeUrl>
+					<autoIncludeDevelopers>false</autoIncludeDevelopers>
 
-			<plugin>
-				<!-- NOTE: We don't need a groupId specification because the group is 
-					org.apache.maven.plugins ...which is assumed by default. -->
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>com.find.duplicate.files.desktoppane.MainApplication</mainClass>
-						</manifest>
-					</archive>
+					<izpackBasedir>${staging.dir}</izpackBasedir>
+					<dependencies>
+						<dependency>
+							<groupId>org.codehaus.izpack</groupId>
+							<artifactId>izpack-standalone-compiler</artifactId>
+							<version>4.3.5</version>
+						</dependency>
+					</dependencies>
+
 				</configuration>
 				<executions>
 					<execution>
-						<id>make-assembly</id>
-						<!-- this is used for inheritance merges -->
+						<id>izpack</id>
 						<phase>package</phase>
-						<!-- append to the packaging phase. -->
 						<goals>
-							<goal>attached</goal>
-							<!-- goals == mojos -->
+							<goal>izpack</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${staging.dir}/lib</outputDirectory>
+					<excludeTransitive>true</excludeTransitive>
+					<stripVersion>true</stripVersion>
+					<overWriteReleases>true</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+					<overWriteIfNewer>true</overWriteIfNewer>
+					<excludeScope>system</excludeScope>
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 
 			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+			<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+			<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
 			</plugin>
 
 		</plugins>
+
+
 	</build>
 
 </project>

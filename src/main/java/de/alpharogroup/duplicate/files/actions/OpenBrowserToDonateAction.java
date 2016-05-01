@@ -8,10 +8,10 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.actions;
-import de.alpharogroup.swing.actions.OpenBrowserAction;
+package de.alpharogroup.duplicate.files.actions;
 
-import com.find.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.swing.actions.OpenBrowserAction;
 
 /**
  * The Class OpenBrowserToDonateAction.
@@ -25,9 +25,10 @@ public class OpenBrowserToDonateAction extends OpenBrowserAction {
 	/**
 	 * Instantiates a new open browser to donate action.
 	 *
-	 * @param name the name
+	 * @param name
+	 *            the name
 	 */
-	public OpenBrowserToDonateAction(String name) {
+	public OpenBrowserToDonateAction(final String name) {
 		super(name, MainFrame.getInstance(), URL_TO_DONATE);
 	}
 

@@ -12,7 +12,7 @@ package com.find.duplicate.files.gen.view;
 
 import de.alpharogroup.generic.mvc.view.AbstractGenericView;
 
-import com.find.duplicate.files.controller.FindDuplicateFilesController;
+import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import com.find.duplicate.files.panels.FindDuplicateFilesPanel;
 
 /**

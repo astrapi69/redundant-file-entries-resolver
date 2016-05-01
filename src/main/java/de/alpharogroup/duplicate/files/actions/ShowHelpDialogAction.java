@@ -8,8 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.actions;
-
+package de.alpharogroup.duplicate.files.actions;
 
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -18,10 +17,9 @@ import javax.swing.AbstractAction;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.duplicate.files.desktoppane.menu.DesktopMenu;
 import de.alpharogroup.swing.laf.LookAndFeels;
-
-import com.find.duplicate.files.desktoppane.MainFrame;
-import com.find.duplicate.files.desktoppane.menu.DesktopMenu;
 
 /**
  * The Class ShowHelpDialogAction.
@@ -32,23 +30,27 @@ public class ShowHelpDialogAction extends AbstractAction {
 	/**
 	 * Instantiates a new show help dialog action.
 	 *
-	 * @param name the name
+	 * @param name
+	 *            the name
 	 */
-	public ShowHelpDialogAction(String name) {
+	public ShowHelpDialogAction(final String name) {
 		super(name);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		LookAndFeels currentLaf = MainFrame.getInstance().getCurrentLookAndFeels();
-		Window helpWindow = DesktopMenu.getInstance().getHelpWindow();
+	public void actionPerformed(final ActionEvent e) {
+		final LookAndFeels currentLaf = MainFrame.getInstance().getCurrentLookAndFeels();
+		final Window helpWindow = DesktopMenu.getInstance().getHelpWindow();
 		helpWindow.setLocationRelativeTo(null);
 		try {
 			UIManager.setLookAndFeel(currentLaf.getLookAndFeelName());
-		} catch (Exception e1) {
+		} catch (final Exception e1) {
 			e1.printStackTrace();
 		}
 		SwingUtilities.updateComponentTreeUI(helpWindow);

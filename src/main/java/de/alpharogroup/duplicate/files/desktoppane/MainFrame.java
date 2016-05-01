@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.desktoppane;
+package de.alpharogroup.duplicate.files.desktoppane;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
@@ -17,11 +17,12 @@ import javax.swing.JToolBar;
 
 import org.jdesktop.swingx.JXFrame;
 
-import com.find.duplicate.files.controller.FindDuplicateFilesController;
-import com.find.duplicate.files.factories.JInternalFrameFactory;
 import com.find.duplicate.files.gen.view.FindDuplicateFilesView;
-import de.alpharogroup.swing.laf.LookAndFeels;
 import com.find.duplicate.files.utils.JInternalFrameUtils;
+
+import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
+import de.alpharogroup.swing.laf.LookAndFeels;
 
 /**
  * The Class MainFrame.
@@ -44,9 +45,6 @@ public class MainFrame extends JXFrame {
 	/** The internal frame. */
 	private JInternalFrame internalFrame;
 
-	/** The internal frame factory. */
-	private JInternalFrameFactory internalFrameFactory;
-
 	/** The current look and feels. */
 	private LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
 
@@ -62,9 +60,10 @@ public class MainFrame extends JXFrame {
 	/**
 	 * Sets the current look and feels.
 	 *
-	 * @param currentLookAndFeels the new current look and feels
+	 * @param currentLookAndFeels
+	 *            the new current look and feels
 	 */
-	public void setCurrentLookAndFeels(LookAndFeels currentLookAndFeels) {
+	public void setCurrentLookAndFeels(final LookAndFeels currentLookAndFeels) {
 		this.currentLookAndFeels = currentLookAndFeels;
 	}
 
@@ -89,11 +88,12 @@ public class MainFrame extends JXFrame {
 	/**
 	 * Instantiates a new main frame.
 	 */
-	private MainFrame(){
+	private MainFrame() {
 		super("Find duplicate files");
 		initComponents();
 	}
-	static{
+
+	static {
 
 	}
 
@@ -106,20 +106,17 @@ public class MainFrame extends JXFrame {
 		setJMenuBar(menubar);
 		setToolBar(toolbar);
 
-        // create internal frame
-		internalFrameFactory = new JInternalFrameFactory();
-		internalFrame = internalFrameFactory.createInternalFrame("Find duplicate files", true, true, true, true);
+		// create internal frame
+		internalFrame = JComponentFactory.newInternalFrame("Find duplicate files", true, true, true, true);
 
-		FindDuplicateFilesView view  = new FindDuplicateFilesView(
-                new FindDuplicateFilesController() );
+		final FindDuplicateFilesView view = new FindDuplicateFilesView(new FindDuplicateFilesController());
 		JInternalFrameUtils.setViewAndControllerForJInternalFrame(internalFrame, view);
-        desktopPane.add( internalFrame );
-        internalFrame.setVisible( true );
+		desktopPane.add(internalFrame);
+		internalFrame.setVisible(true);
 
-        getContentPane().add(desktopPane);
+		getContentPane().add(desktopPane);
 
 	}
-
 
 	/**
 	 * Gets the desktop pane.
@@ -147,6 +144,5 @@ public class MainFrame extends JXFrame {
 	public JToolBar getToolbar() {
 		return toolbar;
 	}
-
 
 }

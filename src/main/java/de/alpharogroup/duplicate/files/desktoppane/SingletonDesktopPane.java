@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.desktoppane;
+package de.alpharogroup.duplicate.files.desktoppane;
 
 import javax.swing.JDesktopPane;
 

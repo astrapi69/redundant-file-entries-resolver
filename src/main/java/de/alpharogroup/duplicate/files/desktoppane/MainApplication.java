@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.desktoppane;
+package de.alpharogroup.duplicate.files.desktoppane;
 
 import java.io.IOException;
 
@@ -22,13 +22,11 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
-import com.find.duplicate.files.desktoppane.menu.DesktopMenu;
 import com.find.duplicate.files.spring.SpringApplicationContext;
 
+import de.alpharogroup.duplicate.files.desktoppane.menu.DesktopMenu;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.swing.laf.LookAndFeels;
-
-
 
 /**
  * The Class MainApplication.
@@ -38,36 +36,31 @@ public class MainApplication {
 	/**
 	 * The main method.
 	 *
-	 * @param args the arguments
+	 * @param args
+	 *            the arguments
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 
-		ApplicationContext ctx = SpringApplicationContext.getInstance()
-		.getApplicationContext();
-		Resource resource = ctx.getResource("classpath:conf/log4j/log4jconfig.xml");
+		final ApplicationContext ctx = SpringApplicationContext.getInstance().getApplicationContext();
+		final Resource resource = ctx.getResource("classpath:conf/log4j/log4jconfig.xml");
 
-
-
-
-
-        try {
+		try {
 			DOMConfigurator.configure(resource.getURL());
-		} catch (FactoryConfigurationError e) {
+		} catch (final FactoryConfigurationError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		MainFrame mainFrame = MainFrame.getInstance();
-		DesktopMenu menu = DesktopMenu.getInstance();
+		final MainFrame mainFrame = MainFrame.getInstance();
+		final DesktopMenu menu = DesktopMenu.getInstance();
 		mainFrame.setJMenuBar(menu.getMenubar());
 
-
-		mainFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		mainFrame.setSize( ScreenSizeExtensions.getScreenWidth(), ScreenSizeExtensions.getScreenHeight() );
-		mainFrame.setVisible( true );
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setSize(ScreenSizeExtensions.getScreenWidth(), ScreenSizeExtensions.getScreenHeight());
+		mainFrame.setVisible(true);
 		mainFrame.getDesktopPane().getDesktopManager().activateFrame(mainFrame.getInternalFrame());
 		mainFrame.getDesktopPane().getDesktopManager().maximizeFrame(mainFrame.getInternalFrame());
 		mainFrame.getInternalFrame().toFront();
@@ -77,16 +70,16 @@ public class MainApplication {
 			UIManager.setLookAndFeel(LookAndFeels.SYSTEM.getLookAndFeelName());
 			SwingUtilities.updateComponentTreeUI(mainFrame);
 			mainFrame.setCurrentLookAndFeels(LookAndFeels.SYSTEM);
-		} catch (ClassNotFoundException e1) {
+		} catch (final ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} catch (InstantiationException e1) {
+		} catch (final InstantiationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
+		} catch (final IllegalAccessException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e1) {
+		} catch (final UnsupportedLookAndFeelException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

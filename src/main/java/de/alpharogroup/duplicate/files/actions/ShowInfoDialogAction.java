@@ -8,14 +8,14 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.actions;
+package de.alpharogroup.duplicate.files.actions;
 
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import com.find.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
 import com.find.duplicate.files.help.InfoJDialog;
 
 /**

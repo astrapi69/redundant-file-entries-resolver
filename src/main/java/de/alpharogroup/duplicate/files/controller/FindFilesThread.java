@@ -8,23 +8,21 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.controller;
+package de.alpharogroup.duplicate.files.controller;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 
 import de.alpharogroup.regex.RegExExtensions;
 
 /**
- * The Class GetFilesWorker.
+ * The Class FindFilesThread.
  */
-public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
+public class FindFilesThread extends Thread {
 
 	/** The file list. */
 	List<File> fileList;
@@ -57,32 +55,28 @@ public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
 	}
 
 	/**
-	 * Instantiates a new gets the files worker.
+	 * Instantiates a new find files thread.
 	 *
 	 * @param dir the dir
 	 * @param progressbar the progressbar
 	 * @param info the info
 	 */
-	public GetFilesWorker(File dir, final JTextArea progressbar, String info) {
+	public FindFilesThread(File dir, final JTextArea progressbar, String info) {
 		this.dir = dir;
 		this.progressbar = progressbar;
 	}
 
-	 /* (non-Javadoc)
- 	 * @see javax.swing.SwingWorker#done()
- 	 */
- 	public void done() {
-		 try {
-			fileList = get();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	 }
+	/* (non-Javadoc)
+	 * @see java.lang.Thread#run()
+	 */
+	public void run() {
 
+		fileList = findFilesRecursive(dir, "*",
+				progressbar, 0);
+		this.over = true;
+		System.out.println("Finish...");
+
+	}
 
 	/**
 	 * Finds all files that match the search pattern. The search is recursively.
@@ -132,17 +126,5 @@ public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
 			}
 		}
 		return foundedFileList;
-	}
-
-	/* (non-Javadoc)
-	 * @see javax.swing.SwingWorker#doInBackground()
-	 */
-	@Override
-	protected List<File> doInBackground() throws Exception {
-		fileList = findFilesRecursive(dir, "*",
-				progressbar, 0);
-		this.over = true;
-		System.out.println("Finish...");
-		return fileList;
 	}
 }

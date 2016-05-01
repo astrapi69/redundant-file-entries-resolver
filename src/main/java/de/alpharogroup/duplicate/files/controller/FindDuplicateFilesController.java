@@ -26,9 +26,9 @@ import javax.swing.SwingWorker;
 
 import org.apache.log4j.Logger;
 
-import com.find.duplicate.files.gen.view.FindDuplicateFilesView;
-import com.find.duplicate.files.model.FindDuplicateFilesModel;
-import com.find.duplicate.files.tablemodel.FileContentResultBeanTableModel;
+import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
+import de.alpharogroup.duplicate.files.model.FindDuplicateFilesModel;
+import de.alpharogroup.duplicate.files.tablemodel.FileContentResultBeanTableModel;
 
 import de.alpharogroup.file.compare.CompareFileExtensions;
 import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;

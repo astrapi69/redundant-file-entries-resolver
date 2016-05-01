@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.tablemodel;
+package de.alpharogroup.duplicate.files.tablemodel;
 
 import java.io.File;
 

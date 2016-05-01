@@ -17,8 +17,8 @@ import javax.swing.JToolBar;
 
 import org.jdesktop.swingx.JXFrame;
 
-import com.find.duplicate.files.gen.view.FindDuplicateFilesView;
-import com.find.duplicate.files.utils.JInternalFrameUtils;
+import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
+import de.alpharogroup.duplicate.files.utils.JInternalFrameUtils;
 
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.swing.components.factories.JComponentFactory;

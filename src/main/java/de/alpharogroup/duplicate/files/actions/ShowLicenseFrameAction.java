@@ -24,8 +24,8 @@ import de.alpharogroup.io.StreamExtensions;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
-import com.find.duplicate.files.help.HelpJFrame;
-import com.find.duplicate.files.spring.SpringApplicationContext;
+import de.alpharogroup.duplicate.files.help.HelpJFrame;
+import de.alpharogroup.duplicate.files.spring.SpringApplicationContext;
 
 /**
  * The Class ShowLicenseFrameAction.

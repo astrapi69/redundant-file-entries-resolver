@@ -1,10 +1,7 @@
 Manifest-Version: 1.0
 Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
-Built-By: admin
+Built-By: astrapi69
 Build-Jdk: 1.6.0_16
 Package: com.find.duplicate.files.desktoppane
-Main-Class: com.find.duplicate.files.desktoppane.MainApplication
-mode: development
-url: 
-
+Main-Class: de.alpharogroup.duplicate.files.desktoppane.MainApplication

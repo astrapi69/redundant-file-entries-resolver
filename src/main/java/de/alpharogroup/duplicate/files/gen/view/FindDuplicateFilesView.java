@@ -8,12 +8,12 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.gen.view;
+package de.alpharogroup.duplicate.files.gen.view;
 
 import de.alpharogroup.generic.mvc.view.AbstractGenericView;
 
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
-import com.find.duplicate.files.panels.FindDuplicateFilesPanel;
+import de.alpharogroup.duplicate.files.panels.FindDuplicateFilesPanel;
 
 /**
  * The Class FindDuplicateFilesView.

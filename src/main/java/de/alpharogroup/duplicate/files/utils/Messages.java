@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.utils;
+package de.alpharogroup.duplicate.files.utils;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 

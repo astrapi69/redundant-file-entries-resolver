@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.panels.progressbar;
+package de.alpharogroup.duplicate.files.panels.progressbar;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
-import com.find.duplicate.files.spring.SpringApplicationContext;
+import de.alpharogroup.duplicate.files.spring.SpringApplicationContext;
 
 /**
  * The Class ProgressbarPanel.

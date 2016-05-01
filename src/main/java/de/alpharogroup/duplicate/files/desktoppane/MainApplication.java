@@ -22,7 +22,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
-import com.find.duplicate.files.spring.SpringApplicationContext;
+import de.alpharogroup.duplicate.files.spring.SpringApplicationContext;
 
 import de.alpharogroup.duplicate.files.desktoppane.menu.DesktopMenu;
 import de.alpharogroup.layout.ScreenSizeExtensions;

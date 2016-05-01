@@ -4,10 +4,10 @@
 		<appname>Duplicate Files Finder</appname>
 		<appversion>1.1</appversion>
 		<authors>
-			<author name="Asterios Raptis" email="asterios.raptis@yahoo.gr"/>
+			<author name="Asterios Raptis" email="asterios.raptis@gmx.net"/>
 		</authors>
 		<url>http://sourceforge.net/</url>
-		<javaversion>1.6</javaversion>
+		<javaversion>1.8</javaversion>
 	</info>
 
 	<guiprefs height="600" resizable="yes" width="800">

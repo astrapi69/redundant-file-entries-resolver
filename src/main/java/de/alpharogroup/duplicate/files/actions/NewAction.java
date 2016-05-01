@@ -15,8 +15,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JInternalFrame;
 
-import com.find.duplicate.files.gen.view.FindDuplicateFilesView;
-import com.find.duplicate.files.utils.JInternalFrameUtils;
+import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
+import de.alpharogroup.duplicate.files.utils.JInternalFrameUtils;
 
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;

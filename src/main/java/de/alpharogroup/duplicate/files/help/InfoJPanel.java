@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.help;
+package de.alpharogroup.duplicate.files.help;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.find.duplicate.files.utils.Messages;
+import de.alpharogroup.duplicate.files.utils.Messages;
 
 /**
  * The Class InfoJPanel.

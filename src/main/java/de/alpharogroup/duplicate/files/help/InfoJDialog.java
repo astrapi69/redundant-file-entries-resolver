@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.help;
+package de.alpharogroup.duplicate.files.help;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -23,7 +23,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
-import com.find.duplicate.files.utils.Messages;
+import de.alpharogroup.duplicate.files.utils.Messages;
 
 
 /**

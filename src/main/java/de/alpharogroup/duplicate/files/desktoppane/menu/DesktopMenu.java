@@ -26,7 +26,7 @@ import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import com.find.duplicate.files.utils.Messages;
+import de.alpharogroup.duplicate.files.utils.Messages;
 
 import de.alpharogroup.duplicate.files.actions.NewAction;
 import de.alpharogroup.duplicate.files.actions.OpenBrowserToDonateAction;

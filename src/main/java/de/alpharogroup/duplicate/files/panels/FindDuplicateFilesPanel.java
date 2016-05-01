@@ -8,14 +8,14 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.panels;
+package de.alpharogroup.duplicate.files.panels;
 
 import javax.swing.JTextArea;
 
 import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;
 import de.alpharogroup.swing.x.GenericJXTable;
 
-import com.find.duplicate.files.tablemodel.FileContentResultBeanTableModel;
+import de.alpharogroup.duplicate.files.tablemodel.FileContentResultBeanTableModel;
 
 /**
  * The Class FindDuplicateFilesPanel.

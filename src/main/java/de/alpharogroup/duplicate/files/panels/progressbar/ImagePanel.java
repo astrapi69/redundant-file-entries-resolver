@@ -8,7 +8,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY.
  */
-package com.find.duplicate.files.panels.progressbar;
+package de.alpharogroup.duplicate.files.panels.progressbar;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

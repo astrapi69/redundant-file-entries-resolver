@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
-import com.find.duplicate.files.help.InfoJDialog;
+import de.alpharogroup.duplicate.files.help.InfoJDialog;
 
 /**
  * The Class ShowInfoDialogAction.

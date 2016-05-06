@@ -164,6 +164,19 @@
 
 		<finalName>${full-app-name}</finalName>
 
+		<resources>
+
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/izpack</directory>
+			</resource>
+			
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+
+		</resources>
 
 		<pluginManagement>
 

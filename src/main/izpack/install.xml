@@ -57,7 +57,7 @@
 			<file src="../../src/main/izpack/legal/licence.txt" targetdir="${INSTALL_PATH}" />
 			<file src="../../dist/launch4j/DuplicateFilesFinder.exe"
 				targetdir="${INSTALL_PATH}" />
-			<file src="../../dist/bin/DuplicateFilesFinder.jar" targetdir="${INSTALL_PATH}" />
+			<file src="../../target/DuplicateFilesFinder-jar-with-dependencies.jar" targetdir="${INSTALL_PATH}" />
 			<file src="../../src/main/izpack/doc/readme.txt" targetdir="${INSTALL_PATH}" />
 		</pack>
 

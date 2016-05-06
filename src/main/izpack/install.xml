@@ -35,11 +35,20 @@
 		<modifier key="useHeadingPanel" value="yes" />
 	</guiprefs>
 
-	<panels>
-		<panel classname="TargetPanel" />
-		<panel classname="PacksPanel" />
-		<panel classname="InstallPanel" />
-		<panel classname="FinishPanel" />
+	<resources>
+		<res src="../../src/main/izpack/doc/readme.txt" id="HTMLInfoPanel.info" />
+		<res src="../../src/main/izpack/legal/licence.txt" id="LicencePanel.licence" />
+		<res src="../../src/main/izpack/images/logo.ico" id="installer.langsel.img" />
+	</resources>
+
+	<panels>		
+		<panel classname="HelloPanel"/>
+		<panel classname="HTMLInfoPanel"/>
+		<panel classname="LicencePanel"/>
+		<panel classname="TargetPanel"/>
+		<panel classname="PacksPanel"/>
+		<panel classname="InstallPanel"/>
+		<panel classname="SimpleFinishPanel"/>
 	</panels>
 
 	<packs>
@@ -48,7 +57,7 @@
 			<file src="../../src/main/izpack/legal/licence.txt" targetdir="${INSTALL_PATH}" />
 			<file src="../../dist/launch4j/DuplicateFilesFinder.exe"
 				targetdir="${INSTALL_PATH}" />
-			<file src="../../dist/bin/DuplicateFilesFinder.jar" targetdir="${INSTALL_PATH}" />
+			<file src="../../target/DuplicateFilesFinder-jar-with-dependencies.jar" targetdir="${INSTALL_PATH}" />
 			<file src="../../src/main/izpack/doc/readme.txt" targetdir="${INSTALL_PATH}" />
 		</pack>
 

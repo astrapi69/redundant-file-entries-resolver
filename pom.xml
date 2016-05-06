@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>2.10.0</version>
+		<version>2.11.0</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -164,6 +164,19 @@
 
 		<finalName>${full-app-name}</finalName>
 
+		<resources>
+
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/izpack</directory>
+			</resource>
+			
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+
+		</resources>
 
 		<pluginManagement>
 
@@ -343,9 +356,7 @@
 				<artifactId>izpack-maven-plugin</artifactId>
 			</plugin>
 
-
 		</plugins>
-
 
 	</build>
 

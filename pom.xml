@@ -36,9 +36,6 @@
 		<dist-target-file-name-path>${dist-path}/${full-app-name}.jar</dist-target-file-name-path>
 	</properties>
 
-
-
-
 	<dependencyManagement>
 
 		<dependencies>

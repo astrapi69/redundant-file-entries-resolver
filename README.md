@@ -29,6 +29,22 @@ mvn clean install
 
 ## License
 
-The source code comes under the liberal Apache License V2.0, making jgeohash great for all types of applications.
+The source code comes under the GNU GENERAL PUBLIC LICENSE Version 2.
+
+## Want to Help and improve it? ###
+
+The source code for redundant-file-entries-resolver are on GitHub. Please feel free to fork and send pull requests!
+
+Create your own fork of [astrapi69/redundant-file-entries-resolver/fork](https://github.com/astrapi69/redundant-file-entries-resolver/fork)
+
+To share your changes, [submit a pull request](https://github.com/astrapi69/redundant-file-entries-resolver/pull/new/master).
+
+Don't forget to add new units tests on your changes.
+
+## Contacting the Developer
+
+Do not hesitate to contact the redundant-file-entries-resolver developers with your questions, concerns, comments, bug reports, or feature requests.
+- Feature requests, questions and bug reports can be reported at the [issues page](https://github.com/astrapi69/redundant-file-entries-resolver/issues).
+
 
 

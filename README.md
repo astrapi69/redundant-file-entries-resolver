@@ -17,7 +17,7 @@ In companies administrators can seek the files from the employee for unnecessary
 
 # Install
 
-Windows, Linux and Mac users can download and install it from [izpack installer](https://sourceforge.net/projects/findsamefiles/files/latest/download).
+Windows, Linux and Mac users can download and install it with [izpack installer](https://sourceforge.net/projects/findsamefiles/files/latest/download).
 
 For users that want it build from the source files can clone this git repository. It a maven project so you will need maven and a java JDK.
 

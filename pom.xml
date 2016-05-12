@@ -4,106 +4,22 @@
 
 	<parent>
 		<groupId>de.alpharogroup</groupId>
-		<artifactId>mvn-java-parent</artifactId>
-		<version>2.11.0</version>
+		<artifactId>mvn-ui-parent</artifactId>
+		<version>1.0.0</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>redundant-file-entries-resolver</artifactId>
-	<version>2.0.0</version>
+	<version>2.1.0</version>
 
 	<properties>
-		<javahelp.version>2.0.02</javahelp.version>
-		<swing-layout.version>1.0.3</swing-layout.version>
-		<jxlayer.version>3.0.3</jxlayer.version>
-		<swing-worker.version>1.1</swing-worker.version>
-		<swing-components.version>4.10.0</swing-components.version>
-		<swingx.version>1.6.1</swingx.version>
-		<spring.version>2.5.6</spring.version>
-		<file-worker.version>4.8.0</file-worker.version>
-		<jcommons-lang.version>4.8.0</jcommons-lang.version>
-		<!-- Installer variables -->
-		<staging.dir>${project.build.directory}/staging</staging.dir>
-		<izpack.staging>${staging.dir}</izpack.staging>
-		<info.appName>Duplicate-Files-Finder</info.appName>
-		<info.appsubpath>dist/standard</info.appsubpath>
-		<izpack.dir.app>${basedir}/src/main/izpack</izpack.dir.app>
-		<staging.dir.app>${staging.dir}</staging.dir.app>
 		<full-app-name>DuplicateFilesFinder</full-app-name>
+		<info.appName>Duplicate-Files-Finder</info.appName>
 		<file-name-with-dependencies>${full-app-name}-jar-with-dependencies.jar</file-name-with-dependencies>
 		<file-name-with-dependencies-path>${project.build.directory}/${file-name-with-dependencies}</file-name-with-dependencies-path>
 		<dist-path>${basedir}/dist/bin</dist-path>
 		<dist-target-file-name-path>${dist-path}/${full-app-name}.jar</dist-target-file-name-path>
 	</properties>
-
-	<dependencyManagement>
-
-		<dependencies>
-
-			<dependency>
-				<groupId>org.codehaus.izpack</groupId>
-				<artifactId>izpack-panel</artifactId>
-				<!-- <version>${izpack-panel.version}</version> -->
-				<version>${izpack.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>javax.help</groupId>
-				<artifactId>javahelp</artifactId>
-				<version>${javahelp.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.swinglabs</groupId>
-				<artifactId>swing-layout</artifactId>
-				<version>${swing-layout.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.swinglabs</groupId>
-				<artifactId>jxlayer</artifactId>
-				<version>${jxlayer.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.swinglabs</groupId>
-				<artifactId>swing-worker</artifactId>
-				<version>${swing-worker.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>swing-components</artifactId>
-				<version>${swing-components.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.swinglabs</groupId>
-				<artifactId>swingx</artifactId>
-				<version>${swingx.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>file-worker</artifactId>
-				<version>${file-worker.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jcommons-lang</artifactId>
-				<version>${jcommons-lang.version}</version>
-			</dependency>
-
-		</dependencies>
-
-	</dependencyManagement>
 
 	<dependencies>
 
@@ -170,7 +86,7 @@
 				<filtering>false</filtering>
 				<directory>src/main/izpack</directory>
 			</resource>
-			
+
 			<resource>
 				<filtering>false</filtering>
 				<directory>src/main/resources</directory>

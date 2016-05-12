@@ -26,14 +26,13 @@ import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import de.alpharogroup.duplicate.files.utils.Messages;
-
 import de.alpharogroup.duplicate.files.actions.NewAction;
 import de.alpharogroup.duplicate.files.actions.OpenBrowserToDonateAction;
 import de.alpharogroup.duplicate.files.actions.ShowHelpDialogAction;
 import de.alpharogroup.duplicate.files.actions.ShowInfoDialogAction;
 import de.alpharogroup.duplicate.files.actions.ShowLicenseFrameAction;
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.duplicate.files.utils.Messages;
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.actions.ExitApplicationAction;
 import de.alpharogroup.swing.laf.actions.LookAndFeelMetalAction;
@@ -353,7 +352,7 @@ public class DesktopMenu {
 		if (hs == null) {
 			hsURL = ClassExtensions.getResource(path);
 			try {
-				hs = new HelpSet(null, hsURL);
+				hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
 			} catch (final HelpSetException e) {
 				e.printStackTrace();
 			}

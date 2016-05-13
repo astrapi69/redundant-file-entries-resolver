@@ -10,7 +10,6 @@
  */
 package de.alpharogroup.duplicate.files.actions;
 
-
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -21,29 +20,30 @@ import de.alpharogroup.duplicate.files.help.InfoJDialog;
 /**
  * The Class ShowInfoDialogAction.
  */
-@SuppressWarnings("serial")
 public class ShowInfoDialogAction extends AbstractAction {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 	/** The Constant INFO_TITLE. */
 	private static final String INFO_TITLE = "Info";
 
 	/**
 	 * Instantiates a new show info dialog action.
 	 *
-	 * @param name the name
+	 * @param name
+	 *            the name
 	 */
-	public ShowInfoDialogAction(String name) {
+	public ShowInfoDialogAction(final String name) {
 		super(name);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-        InfoJDialog info = new InfoJDialog(MainFrame.getInstance(), INFO_TITLE);
-        info.setVisible(true);
+	public void actionPerformed(final ActionEvent e) {
+		final InfoJDialog info = new InfoJDialog(MainFrame.getInstance(), INFO_TITLE);
+		info.setVisible(true);
 	}
-
 
 }

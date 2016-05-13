@@ -29,7 +29,6 @@ import org.apache.log4j.Logger;
 import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
 import de.alpharogroup.duplicate.files.model.FindDuplicateFilesModel;
 import de.alpharogroup.duplicate.files.tablemodel.FileContentResultBeanTableModel;
-
 import de.alpharogroup.file.compare.CompareFileExtensions;
 import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;
 import de.alpharogroup.file.search.SearchFileAttributesBean;
@@ -249,10 +248,8 @@ public class FindDuplicateFilesController
 			this.progressBar = progressBar;
 		}
 
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see javax.swing.SwingWorker#doInBackground()
+		/**
+		 * {@inheritDoc}
 		 */
 		@Override
 		protected List<IFileContentResultBean> doInBackground() throws Exception {
@@ -375,10 +372,8 @@ public class FindDuplicateFilesController
 		setModel(model);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.sourceforge.jaulp.generic.mvc.controller.Controller#getName()
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getName() {

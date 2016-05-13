@@ -12,9 +12,10 @@ package de.alpharogroup.duplicate.files.model;
 
 import java.io.File;
 
-
 import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;
 import de.alpharogroup.generic.mvc.model.Model;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * The Class FindDuplicateFilesModel.
@@ -25,84 +26,34 @@ public class FindDuplicateFilesModel implements Model<FindDuplicateFilesModel> {
 	private static final long serialVersionUID = 1L;
 
 	/** The source. */
+	@Getter
+	@Setter
 	private File source;
 
 	/** The compare. */
+	@Getter
+	@Setter
 	private File compare;
 
 	/** The file content result bean. */
+	@Getter
 	private IFileContentResultBean fileContentResultBean;
 
 	/**
-	 * Gets the file content result bean.
-	 *
-	 * @return the file content result bean
-	 */
-	public IFileContentResultBean getFileContentResultBean() {
-		return fileContentResultBean;
-	}
-
-	/**
-	 * Sets the file content result bean.
-	 *
-	 * @param fileContentResultBean the new file content result bean
-	 */
-	public void setFileContentResultBean(
-			IFileContentResultBean fileContentResultBean) {
-		this.fileContentResultBean = fileContentResultBean;
-	}
-
-	/**
-	 * Gets the source.
-	 *
-	 * @return the source
-	 */
-	public File getSource() {
-		return source;
-	}
-
-	/**
-	 * Sets the source.
-	 *
-	 * @param source the new source
-	 */
-	public void setSource(File source) {
-		this.source = source;
-	}
-
-	/**
-	 * Gets the compare.
-	 *
-	 * @return the compare
-	 */
-	public File getCompare() {
-		return compare;
-	}
-
-	/**
-	 * Sets the compare.
-	 *
-	 * @param compare the new compare
-	 */
-	public void setCompare(File compare) {
-		this.compare = compare;
-	}
-
-	/* (non-Javadoc)
-	 * @see net.sourceforge.jaulp.generic.mvc.model.Model#getModelContent()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public FindDuplicateFilesModel getModelObject() {
 		return this;
 	}
 
-	/* (non-Javadoc)
-	 * @see net.sourceforge.jaulp.generic.mvc.model.Model#setModelContent(java.io.Serializable)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void setModelObject(FindDuplicateFilesModel modelObject) {
-		this.compare = modelObject.compare;
-		this.fileContentResultBean = modelObject.fileContentResultBean;
-		this.source = modelObject.source;
+	public void setModelObject(final FindDuplicateFilesModel modelObject) {
+		compare = modelObject.compare;
+		fileContentResultBean = modelObject.fileContentResultBean;
+		source = modelObject.source;
 	}
 }

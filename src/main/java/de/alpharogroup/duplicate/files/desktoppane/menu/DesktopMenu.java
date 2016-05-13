@@ -39,6 +39,8 @@ import de.alpharogroup.swing.laf.actions.LookAndFeelMetalAction;
 import de.alpharogroup.swing.laf.actions.LookAndFeelMotifAction;
 import de.alpharogroup.swing.laf.actions.LookAndFeelSystemAction;
 import de.alpharogroup.swing.menu.MenuExtensions;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * The Class DesktopMenu.
@@ -46,38 +48,25 @@ import de.alpharogroup.swing.menu.MenuExtensions;
 public class DesktopMenu {
 
 	/** The JMenuBar from the DesktopMenu. */
+	@Getter
 	private JMenuBar menubar;
 
 	/** The file menu. */
+	@Getter
 	private JMenu fileMenu;
 
 	/** The look and feel menu. */
+	@Getter
 	private JMenu lookAndFeelMenu;
 
 	/** The help menu. */
+	@Getter
 	private JMenu helpMenu;
 
 	/** The help window. */
+	@Getter
+	@Setter
 	private Window helpWindow;
-
-	/**
-	 * Gets the help window.
-	 *
-	 * @return the help window
-	 */
-	public Window getHelpWindow() {
-		return helpWindow;
-	}
-
-	/**
-	 * Sets the help window.
-	 *
-	 * @param helpWindow
-	 *            the new help window
-	 */
-	public void setHelpWindow(final Window helpWindow) {
-		this.helpWindow = helpWindow;
-	}
 
 	/** The instance. */
 	private static DesktopMenu instance = new DesktopMenu();
@@ -92,15 +81,6 @@ public class DesktopMenu {
 	}
 
 	/**
-	 * Returns the field <code>menubar</code>.
-	 *
-	 * @return The field .
-	 */
-	public JMenuBar getMenubar() {
-		return menubar;
-	}
-
-	/**
 	 * Instantiates a new desktop menu.
 	 */
 	private DesktopMenu() {
@@ -108,7 +88,6 @@ public class DesktopMenu {
 		fileMenu = createFileMenu(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				// TODO Auto-generated method stub
 				System.out.println("filemenu");
 			}
 		});
@@ -116,7 +95,6 @@ public class DesktopMenu {
 		lookAndFeelMenu = createLookAndFeelMenu(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				// TODO Auto-generated method stub
 				System.out.println("Look and Feel menu");
 			}
 		});
@@ -124,7 +102,6 @@ public class DesktopMenu {
 		helpMenu = createHelpMenu(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				// TODO Auto-generated method stub
 				System.out.println("Help menu");
 			}
 		});
@@ -310,33 +287,6 @@ public class DesktopMenu {
 		menuHelp.add(mihInfo);
 
 		return menuHelp;
-	}
-
-	/**
-	 * Gets the file menu.
-	 *
-	 * @return the file menu
-	 */
-	public JMenu getFileMenu() {
-		return fileMenu;
-	}
-
-	/**
-	 * Gets the look and feel menu.
-	 *
-	 * @return the look and feel menu
-	 */
-	public JMenu getLookAndFeelMenu() {
-		return lookAndFeelMenu;
-	}
-
-	/**
-	 * Gets the help menu.
-	 *
-	 * @return the help menu
-	 */
-	public JMenu getHelpMenu() {
-		return helpMenu;
 	}
 
 	/**

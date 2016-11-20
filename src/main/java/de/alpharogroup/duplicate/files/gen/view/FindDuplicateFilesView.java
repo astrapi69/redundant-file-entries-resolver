@@ -10,29 +10,28 @@
  */
 package de.alpharogroup.duplicate.files.gen.view;
 
-import de.alpharogroup.generic.mvc.view.AbstractGenericView;
-
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.panels.FindDuplicateFilesPanel;
+import de.alpharogroup.generic.mvc.view.AbstractGenericView;
 
 /**
  * The Class FindDuplicateFilesView.
  */
-public class FindDuplicateFilesView extends
-		AbstractGenericView<FindDuplicateFilesController, FindDuplicateFilesPanel> {
+public class FindDuplicateFilesView extends AbstractGenericView<FindDuplicateFilesController, FindDuplicateFilesPanel> {
 
 	/**
 	 * Instantiates a new find duplicate files view.
 	 *
-	 * @param controller the controller
+	 * @param controller
+	 *            the controller
 	 */
-	public FindDuplicateFilesView(FindDuplicateFilesController controller) {
+	public FindDuplicateFilesView(final FindDuplicateFilesController controller) {
 		super(controller);
-		controller.setView( this );
+		controller.setView(this);
 	}
 
-	/* (non-Javadoc)
-	 * @see net.sourceforge.jaulp.generic.mvc.view.AbstractGenericView#initialize()
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected void initialize() {

@@ -19,6 +19,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 
+import lombok.Getter;
+
 /**
  * The Class SpringApplicationContext.
  */
@@ -37,44 +39,32 @@ public class SpringApplicationContext {
 	}
 
 	/** The application context. */
+	@Getter
 	private ApplicationContext applicationContext;
-
-	/**
-	 * Gets the application context.
-	 *
-	 * @return the application context
-	 */
-	public ApplicationContext getApplicationContext() {
-		return applicationContext;
-	}
 
 	/**
 	 * Instantiates a new spring application context.
 	 */
 	private SpringApplicationContext() {
-		String rootContextDirectoryClassPath = "/ctx";
+		final String rootContextDirectoryClassPath = "/ctx";
 
-        String applicationContextPath = rootContextDirectoryClassPath
-                + "/application-context.xml";
+		final String applicationContextPath = rootContextDirectoryClassPath + "/application-context.xml";
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext(applicationContextPath);
+		final ApplicationContext ac = new ClassPathXmlApplicationContext(applicationContextPath);
 
+		final Resource resource = ac.getResource("classpath:conf/log4j/log4jconfig.xml");
 
-		Resource resource = ac.getResource("classpath:conf/log4j/log4jconfig.xml");
-
-
-        try {
+		try {
 			DOMConfigurator.configure(resource.getURL());
-		} catch (FactoryConfigurationError e) {
+		} catch (final FactoryConfigurationError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
-        applicationContext = ac;
+		applicationContext = ac;
 	}
 
 }

@@ -20,81 +20,72 @@ import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 import de.alpharogroup.regex.RegExExtensions;
+import lombok.Getter;
 
 /**
  * The Class GetFilesWorker.
  */
-public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
+public class GetFilesWorker extends SwingWorker<List<File>, Void> {
 
 	/** The file list. */
-	List<File> fileList;
-
-	/**
-	 * Gets the file list.
-	 *
-	 * @return the file list
-	 */
-	public List<File> getFileList() {
-		return fileList;
-	}
+	@Getter
+	private List<File> fileList;
 
 	/** The progressbar. */
-	final JTextArea progressbar;
+	private final JTextArea progressbar;
 
 	/** The dir. */
-	File dir;
+	private File dir;
 
 	/** The over. */
-	boolean over;
-
-	/**
-	 * Checks if is over.
-	 *
-	 * @return true, if is over
-	 */
-	public boolean isOver() {
-		return over;
-	}
+	@Getter
+	private boolean over;
 
 	/**
 	 * Instantiates a new gets the files worker.
 	 *
-	 * @param dir the dir
-	 * @param progressbar the progressbar
-	 * @param info the info
+	 * @param dir
+	 *            the dir
+	 * @param progressbar
+	 *            the progressbar
+	 * @param info
+	 *            the info
 	 */
-	public GetFilesWorker(File dir, final JTextArea progressbar, String info) {
+	public GetFilesWorker(final File dir, final JTextArea progressbar, final String info) {
 		this.dir = dir;
 		this.progressbar = progressbar;
 	}
 
-	 /* (non-Javadoc)
- 	 * @see javax.swing.SwingWorker#done()
- 	 */
- 	public void done() {
-		 try {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void done() {
+		try {
 			fileList = get();
-		} catch (InterruptedException e) {
+		} catch (final InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ExecutionException e) {
+		} catch (final ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	 }
-
+	}
 
 	/**
 	 * Finds all files that match the search pattern. The search is recursively.
 	 *
-	 * @param dir The directory to search.
-	 * @param filenameToSearch The search pattern. Allowed wildcards are "*" and "?".
-	 * @param progressBar the progress bar
-	 * @param currentPosition the current position
+	 * @param dir
+	 *            The directory to search.
+	 * @param filenameToSearch
+	 *            The search pattern. Allowed wildcards are "*" and "?".
+	 * @param progressBar
+	 *            the progress bar
+	 * @param currentPosition
+	 *            the current position
 	 * @return A List with all files that matches the search pattern.
 	 */
-	private List<File> findFilesRecursive(final File dir,
-			final String filenameToSearch, final JTextArea progressBar,
+	private List<File> findFilesRecursive(final File dir, final String filenameToSearch, final JTextArea progressBar,
 			int currentPosition) {
 		final List<File> foundedFileList = new ArrayList<File>();
 		final String regex = RegExExtensions.replaceWildcardsWithRE(filenameToSearch);
@@ -107,23 +98,24 @@ public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
 			System.out.println(children[i].getAbsolutePath());
 			final String absolutePath = children[i].getAbsolutePath();
 			SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                	progressBar.append(absolutePath + "\n");
-                	progressBar.revalidate();
-                }
-            });
+				@Override
+				public void run() {
+					progressBar.append(absolutePath + "\n");
+					progressBar.revalidate();
+				}
+			});
 			// if the entry is a directory
 			if (children[i].isDirectory()) { // then
 				// find recursively in the directory and put it in a List.
-				final List<File> foundedFiles = findFilesRecursive(children[i],
-						filenameToSearch, progressBar, currentPosition);
+				final List<File> foundedFiles = findFilesRecursive(children[i], filenameToSearch, progressBar,
+						currentPosition);
 				// Put the founded files in the main List.
 				currentPosition += foundedFileList.size();
 
 				foundedFileList.addAll(foundedFiles);
 			} else {
 				// entry is a file
-                currentPosition++;
+				currentPosition++;
 				final String filename = children[i].getName();
 
 				if (filename.matches(regex)) {
@@ -134,14 +126,13 @@ public class GetFilesWorker extends SwingWorker<List<File>, Void>  {
 		return foundedFileList;
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.SwingWorker#doInBackground()
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected List<File> doInBackground() throws Exception {
-		fileList = findFilesRecursive(dir, "*",
-				progressbar, 0);
-		this.over = true;
+		fileList = findFilesRecursive(dir, "*", progressbar, 0);
+		over = true;
 		System.out.println("Finish...");
 		return fileList;
 	}

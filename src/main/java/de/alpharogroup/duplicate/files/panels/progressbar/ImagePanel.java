@@ -18,25 +18,28 @@ import javax.swing.JPanel;
 /**
  * The Class ImagePanel.
  */
-@SuppressWarnings("serial")
 public class ImagePanel extends JPanel {
-	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The image. */
-	BufferedImage image;
+	private BufferedImage image;
 
 	/**
 	 * Instantiates a new image panel.
 	 *
-	 * @param image the image
+	 * @param image
+	 *            the image
 	 */
-	ImagePanel(BufferedImage image) {
+	public ImagePanel(final BufferedImage image) {
 		this.image = image;
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	/**
+	 * {@inheritDoc}
 	 */
-	protected void paintComponent(Graphics g) {
+	@Override
+	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(image, 0, 0, this);
 	}

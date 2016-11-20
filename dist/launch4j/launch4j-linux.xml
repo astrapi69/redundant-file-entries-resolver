@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>/home/astrapi69/git/redundant-file-entries-resolver/target/DuplicateFilesFinder-jar-with-dependencies.jar</jar>
-  <outfile>/home/astrapi69/git/redundant-file-entries-resolver/dist/launch4j/DuplicateFilesFinder-new.exe</outfile>
+  <outfile>/home/astrapi69/git/redundant-file-entries-resolver/dist/launch4j/DuplicateFilesFinder.exe</outfile>
   <errTitle>JDK not installed. Please download and install.</errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>

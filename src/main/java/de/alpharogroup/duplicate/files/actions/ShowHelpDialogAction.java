@@ -24,8 +24,10 @@ import de.alpharogroup.swing.laf.LookAndFeels;
 /**
  * The Class ShowHelpDialogAction.
  */
-@SuppressWarnings("serial")
 public class ShowHelpDialogAction extends AbstractAction {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Instantiates a new show help dialog action.
@@ -37,11 +39,8 @@ public class ShowHelpDialogAction extends AbstractAction {
 		super(name);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void actionPerformed(final ActionEvent e) {

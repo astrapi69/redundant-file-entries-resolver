@@ -10,12 +10,23 @@
  */
 package de.alpharogroup.duplicate.files.panels;
 
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
-import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;
-import de.alpharogroup.swing.x.GenericJXTable;
+import org.jdesktop.swingx.JXLabel;
+import org.jdesktop.swingx.JXTable;
 
 import de.alpharogroup.duplicate.files.tablemodel.FileContentResultBeanTableModel;
+import de.alpharogroup.file.compare.interfaces.IFileContentResultBean;
+import de.alpharogroup.swing.x.GenericJXTable;
+import lombok.Getter;
 
 /**
  * The Class FindDuplicateFilesPanel.
@@ -23,449 +34,263 @@ import de.alpharogroup.duplicate.files.tablemodel.FileContentResultBeanTableMode
  * @author admin
  */
 @SuppressWarnings("serial")
-public class FindDuplicateFilesPanel extends javax.swing.JPanel {
+public class FindDuplicateFilesPanel extends JPanel {
 
-    /** The btn delete compares. */
-    private javax.swing.JButton btnDeleteCompares;
+	/** The btn delete compares. */
+	@Getter
+	private JButton btnDeleteCompares;
 
-    /** The btn delete sources. */
-    private javax.swing.JButton btnDeleteSources;
+	/** The btn delete sources. */
+	@Getter
+	private JButton btnDeleteSources;
 
-    /** The btn search. */
-    private javax.swing.JButton btnSearch;
+	/** The btn search. */
+	@Getter
+	private JButton btnSearch;
 
-    /** The btn select compare. */
-    private javax.swing.JButton btnSelectCompare;
+	/** The btn select compare. */
+	@Getter
+	private JButton btnSelectCompare;
 
-    /** The btn select source. */
-    private javax.swing.JButton btnSelectSource;
+	/** The btn select source. */
+	@Getter
+	private JButton btnSelectSource;
 
-    /** The chb extension. */
-    private javax.swing.JCheckBox chbExtension;
+	/** The chb extension. */
+	@Getter
+	private JCheckBox chbExtension;
 
-    /** The chb file content. */
-    private javax.swing.JCheckBox chbFileContent;
+	/** The chb file content. */
+	@Getter
+	private JCheckBox chbFileContent;
 
-    /** The chb filename. */
-    private javax.swing.JCheckBox chbFilename;
+	/** The chb filename. */
+	@Getter
+	private JCheckBox chbFilename;
 
-    /** The chb last modified. */
-    private javax.swing.JCheckBox chbLastModified;
+	/** The chb last modified. */
+	@Getter
+	private JCheckBox chbLastModified;
 
-    /** The chb length. */
-    private javax.swing.JCheckBox chbLength;
+	/** The chb length. */
+	@Getter
+	private JCheckBox chbLength;
 
-    /** The lbl compare. */
-    private org.jdesktop.swingx.JXLabel lblCompare;
+	/** The lbl compare. */
+	@Getter
+	private JXLabel lblCompare;
 
-    /** The lbl progress. */
-    private org.jdesktop.swingx.JXLabel lblProgress;
+	/** The lbl progress. */
+	@Getter
+	private JXLabel lblProgress;
 
-    /** The lbl results. */
-    private org.jdesktop.swingx.JXLabel lblResults;
+	/** The lbl results. */
+	@Getter
+	private JXLabel lblResults;
 
-    /** The lbl source. */
-    private org.jdesktop.swingx.JXLabel lblSource;
+	/** The lbl source. */
+	@Getter
+	private JXLabel lblSource;
 
-    /** The prgrs br search. */
-    private javax.swing.JProgressBar prgrsBrSearch;
+	/** The prgrs br search. */
+	@Getter
+	private JProgressBar prgrsBrSearch;
 
-    /** The scr pn tbl results. */
-    private javax.swing.JScrollPane scrPnTblResults;
+	/** The scr pn tbl results. */
+	@Getter
+	private JScrollPane scrPnTblResults;
 
-    /** The tbl results. */
-    private org.jdesktop.swingx.JXTable tblResults;
+	/** The tbl results. */
+	@Getter
+	private JXTable tblResults;
 
-    /** The txt compare. */
-    private javax.swing.JTextField txtCompare;
+	/** The txt compare. */
+	@Getter
+	private JTextField txtCompare;
 
-    /** The txt source. */
-    private javax.swing.JTextField txtSource;
+	/** The txt source. */
+	@Getter
+	private JTextField txtSource;
 
-    /** The lbl process. */
-    private org.jdesktop.swingx.JXLabel lblProcess;
+	/** The lbl process. */
+	@Getter
+	private JXLabel lblProcess;
 
 	/** The scr pn progress. */
-	private javax.swing.JScrollPane scrPnProgress;
+	@Getter
+	private JScrollPane scrPnProgress;
 
-    /** The txt process description. */
-    private javax.swing.JTextField txtProcessDescription;
+	/** The txt process description. */
+	@Getter
+	private JTextField txtProcessDescription;
 
-    /** The txt progress. */
-    private JTextArea txtProgress;
+	/** The txt progress. */
+	@Getter
+	private JTextArea txtProgress;
 
+	/**
+	 * Creates new form FindDuplicateFilesPanel.
+	 */
+	public FindDuplicateFilesPanel() {
+		initComponents();
+		initLayout();
+	}
 
-    /**
-     * Creates new form FindDuplicateFilesPanel2.
-     */
-    public FindDuplicateFilesPanel() {
-        initComponents();
-        initLayout();
-    }
+	/**
+	 * Inits the components.
+	 */
+	private void initComponents() {
 
-    /**
-     * Inits the components.
-     */
-    private void initComponents() {
+		lblSource = new JXLabel();
+		txtSource = new JTextField();
+		btnSelectSource = new JButton();
+		lblCompare = new JXLabel();
+		txtCompare = new JTextField();
+		btnSelectCompare = new JButton();
+		chbFilename = new JCheckBox();
+		chbExtension = new JCheckBox();
+		chbLastModified = new JCheckBox();
+		chbLength = new JCheckBox();
+		chbFileContent = new JCheckBox();
+		scrPnTblResults = new JScrollPane();
+		tblResults = new GenericJXTable<IFileContentResultBean>(new FileContentResultBeanTableModel());
+		btnDeleteCompares = new JButton();
+		lblResults = new JXLabel();
+		btnDeleteSources = new JButton();
+		btnSearch = new JButton();
+		prgrsBrSearch = new JProgressBar();
+		lblProgress = new JXLabel();
 
-        lblSource = new org.jdesktop.swingx.JXLabel();
-        txtSource = new javax.swing.JTextField();
-        btnSelectSource = new javax.swing.JButton();
-        lblCompare = new org.jdesktop.swingx.JXLabel();
-        txtCompare = new javax.swing.JTextField();
-        btnSelectCompare = new javax.swing.JButton();
-        chbFilename = new javax.swing.JCheckBox();
-        chbExtension = new javax.swing.JCheckBox();
-        chbLastModified = new javax.swing.JCheckBox();
-        chbLength = new javax.swing.JCheckBox();
-        chbFileContent = new javax.swing.JCheckBox();
-        scrPnTblResults = new javax.swing.JScrollPane();
-        tblResults = new GenericJXTable<IFileContentResultBean>(new FileContentResultBeanTableModel());
-        btnDeleteCompares = new javax.swing.JButton();
-        lblResults = new org.jdesktop.swingx.JXLabel();
-        btnDeleteSources = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        prgrsBrSearch = new javax.swing.JProgressBar();
-        lblProgress = new org.jdesktop.swingx.JXLabel();
+		scrPnProgress = new JScrollPane();
+		txtProgress = new JTextArea();
+		lblProcess = new JXLabel();
+		txtProcessDescription = new JTextField();
 
-        scrPnProgress = new javax.swing.JScrollPane();
-        txtProgress = new JTextArea();
-        lblProcess = new org.jdesktop.swingx.JXLabel();
-        txtProcessDescription = new javax.swing.JTextField();
+		lblSource.setText("Source:");
 
-        lblSource.setText("Source:");
+		btnSelectSource.setText("Select");
 
-        btnSelectSource.setText("Select");
+		lblCompare.setText("Compare:");
 
-        lblCompare.setText("Compare:");
+		btnSelectCompare.setText("Select");
 
-        btnSelectCompare.setText("Select");
+		chbFilename.setText("Filename");
 
-        chbFilename.setText("Filename");
+		chbExtension.setText("Extension");
 
-        chbExtension.setText("Extension");
+		chbLastModified.setText("Last modified");
 
-        chbLastModified.setText("Last modified");
+		chbLength.setText("Length");
 
-        chbLength.setText("Length");
+		chbFileContent.setText("File content");
 
-        chbFileContent.setText("File content");
+		scrPnTblResults.setViewportView(tblResults);
 
-        scrPnTblResults.setViewportView(tblResults);
+		btnDeleteCompares.setText("Delete duplicate compare files");
 
-        btnDeleteCompares.setText("Delete duplicate compare files");
+		lblResults.setText("Results:");
 
-        lblResults.setText("Results:");
+		btnDeleteSources.setText("Delete duplicate source files");
 
-        btnDeleteSources.setText("Delete duplicate source files");
+		btnSearch.setText("Search for duplicate files");
 
-        btnSearch.setText("Search for duplicate files");
+		lblProgress.setText("Progress:");
 
-        lblProgress.setText("Progress:");
+		txtProgress.setBackground(new java.awt.Color(212, 208, 200));
 
-        txtProgress.setBackground(new java.awt.Color(212, 208, 200));
+		scrPnProgress.setViewportView(txtProgress);
 
-        scrPnProgress.setViewportView(txtProgress);
+		lblProcess.setText("Process:");
 
-        lblProcess.setText("Process:");
-
-
-    }
+	}
 
 	/**
 	 * Inits the layout.
 	 */
 	private void initLayout() {
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scrPnProgress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(chbExtension)
-                        .addGap(33, 33, 33)
-                        .addComponent(chbLength)
-                        .addGap(18, 18, 18)
-                        .addComponent(chbLastModified)
-                        .addGap(18, 18, 18)
-                        .addComponent(chbFilename)
-                        .addGap(18, 18, 18)
-                        .addComponent(chbFileContent))
-                    .addComponent(lblCompare, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSource, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblResults, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSource)
-                            .addComponent(txtCompare)
-                            .addComponent(scrPnTblResults, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDeleteCompares, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(btnSelectCompare, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(btnSelectSource, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(btnDeleteSources, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
-                    .addComponent(lblProgress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(lblProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtProcessDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelectSource))
-                .addGap(19, 19, 19)
-                .addComponent(lblCompare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCompare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelectCompare))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chbExtension)
-                    .addComponent(chbLength)
-                    .addComponent(chbLastModified)
-                    .addComponent(chbFilename)
-                    .addComponent(chbFileContent))
-                .addGap(18, 18, 18)
-                .addComponent(lblResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSearch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteSources)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteCompares))
-                    .addComponent(scrPnTblResults, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblProcess, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(txtProcessDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrPnProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
-        );
-	}
-
-	/**
-	 * Gets the btn delete compares.
-	 *
-	 * @return the btn delete compares
-	 */
-	public javax.swing.JButton getBtnDeleteCompares() {
-		return btnDeleteCompares;
-	}
-
-	/**
-	 * Gets the btn delete sources.
-	 *
-	 * @return the btn delete sources
-	 */
-	public javax.swing.JButton getBtnDeleteSources() {
-		return btnDeleteSources;
-	}
-
-	/**
-	 * Gets the btn search.
-	 *
-	 * @return the btn search
-	 */
-	public javax.swing.JButton getBtnSearch() {
-		return btnSearch;
-	}
-
-	/**
-	 * Gets the btn select compare.
-	 *
-	 * @return the btn select compare
-	 */
-	public javax.swing.JButton getBtnSelectCompare() {
-		return btnSelectCompare;
-	}
-
-	/**
-	 * Gets the btn select source.
-	 *
-	 * @return the btn select source
-	 */
-	public javax.swing.JButton getBtnSelectSource() {
-		return btnSelectSource;
-	}
-
-	/**
-	 * Gets the chb extension.
-	 *
-	 * @return the chb extension
-	 */
-	public javax.swing.JCheckBox getChbExtension() {
-		return chbExtension;
-	}
-
-	/**
-	 * Gets the chb file content.
-	 *
-	 * @return the chb file content
-	 */
-	public javax.swing.JCheckBox getChbFileContent() {
-		return chbFileContent;
-	}
-
-	/**
-	 * Gets the chb filename.
-	 *
-	 * @return the chb filename
-	 */
-	public javax.swing.JCheckBox getChbFilename() {
-		return chbFilename;
-	}
-
-	/**
-	 * Gets the chb last modified.
-	 *
-	 * @return the chb last modified
-	 */
-	public javax.swing.JCheckBox getChbLastModified() {
-		return chbLastModified;
-	}
-
-	/**
-	 * Gets the chb length.
-	 *
-	 * @return the chb length
-	 */
-	public javax.swing.JCheckBox getChbLength() {
-		return chbLength;
-	}
-
-	/**
-	 * Gets the lbl compare.
-	 *
-	 * @return the lbl compare
-	 */
-	public org.jdesktop.swingx.JXLabel getLblCompare() {
-		return lblCompare;
-	}
-
-	/**
-	 * Gets the lbl progress.
-	 *
-	 * @return the lbl progress
-	 */
-	public org.jdesktop.swingx.JXLabel getLblProgress() {
-		return lblProgress;
-	}
-
-	/**
-	 * Gets the lbl results.
-	 *
-	 * @return the lbl results
-	 */
-	public org.jdesktop.swingx.JXLabel getLblResults() {
-		return lblResults;
-	}
-
-	/**
-	 * Gets the lbl source.
-	 *
-	 * @return the lbl source
-	 */
-	public org.jdesktop.swingx.JXLabel getLblSource() {
-		return lblSource;
-	}
-
-	/**
-	 * Gets the prgrs br search.
-	 *
-	 * @return the prgrs br search
-	 */
-	public javax.swing.JProgressBar getPrgrsBrSearch() {
-		return prgrsBrSearch;
-	}
-
-	/**
-	 * Gets the scr pn tbl results.
-	 *
-	 * @return the scr pn tbl results
-	 */
-	public javax.swing.JScrollPane getScrPnTblResults() {
-		return scrPnTblResults;
-	}
-
-	/**
-	 * Gets the tbl results.
-	 *
-	 * @return the tbl results
-	 */
-	public org.jdesktop.swingx.JXTable getTblResults() {
-		return tblResults;
-	}
-
-	/**
-	 * Gets the txt compare.
-	 *
-	 * @return the txt compare
-	 */
-	public javax.swing.JTextField getTxtCompare() {
-		return txtCompare;
-	}
-
-	/**
-	 * Gets the txt source.
-	 *
-	 * @return the txt source
-	 */
-	public javax.swing.JTextField getTxtSource() {
-		return txtSource;
-	}
-
-    /**
-     * Gets the lbl process.
-     *
-     * @return the lbl process
-     */
-    public org.jdesktop.swingx.JXLabel getLblProcess() {
-		return lblProcess;
-	}
-
-	/**
-	 * Gets the scr pn progress.
-	 *
-	 * @return the scr pn progress
-	 */
-	public javax.swing.JScrollPane getScrPnProgress() {
-		return scrPnProgress;
-	}
-
-	/**
-	 * Gets the txt process description.
-	 *
-	 * @return the txt process description
-	 */
-	public javax.swing.JTextField getTxtProcessDescription() {
-		return txtProcessDescription;
-	}
-
-	/**
-	 * Gets the txt progress.
-	 *
-	 * @return the txt progress
-	 */
-	public JTextArea getTxtProgress() {
-		return txtProgress;
+		final GroupLayout layout = new GroupLayout(this);
+		this.setLayout(layout);
+		layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+				GroupLayout.Alignment.TRAILING,
+				layout.createSequentialGroup().addContainerGap().addGroup(layout
+						.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(scrPnProgress, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1041,
+								Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.LEADING,
+								layout.createSequentialGroup().addComponent(chbExtension).addGap(33, 33, 33)
+										.addComponent(chbLength).addGap(18, 18, 18).addComponent(chbLastModified)
+										.addGap(18, 18, 18).addComponent(chbFilename).addGap(18, 18, 18)
+										.addComponent(chbFileContent))
+						.addComponent(lblCompare, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 175,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblSource, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 175,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblResults, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+								.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+										.addComponent(txtSource).addComponent(txtCompare).addComponent(scrPnTblResults,
+												GroupLayout.PREFERRED_SIZE, 749, GroupLayout.PREFERRED_SIZE))
+								.addGap(18, 18, 18)
+								.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(btnDeleteCompares, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+										.addComponent(btnSelectCompare, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+										.addComponent(btnSelectSource, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+										.addComponent(btnSearch, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+										.addComponent(btnDeleteSources, GroupLayout.DEFAULT_SIZE, 274,
+												Short.MAX_VALUE)))
+						.addComponent(lblProgress, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 130,
+								GroupLayout.PREFERRED_SIZE)
+						.addGroup(GroupLayout.Alignment.LEADING,
+								layout.createSequentialGroup()
+										.addComponent(lblProcess, GroupLayout.PREFERRED_SIZE, 102,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED).addComponent(
+												txtProcessDescription, GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)))
+						.addContainerGap()));
+		layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(lblSource, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(txtSource, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSelectSource))
+						.addGap(19, 19, 19)
+						.addComponent(lblCompare, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(txtCompare, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSelectCompare))
+						.addGap(18, 18, 18)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(chbExtension)
+								.addComponent(chbLength).addComponent(chbLastModified).addComponent(chbFilename)
+								.addComponent(chbFileContent))
+						.addGap(18, 18, 18)
+						.addComponent(lblResults, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(layout.createSequentialGroup().addComponent(btnSearch)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(btnDeleteSources)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(btnDeleteCompares))
+								.addComponent(scrPnTblResults, GroupLayout.PREFERRED_SIZE, 290,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(24, 24, 24)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(lblProcess, GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+								.addComponent(txtProcessDescription, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(lblProgress, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(scrPnProgress, GroupLayout.PREFERRED_SIZE, 211, GroupLayout.PREFERRED_SIZE)
+						.addGap(48, 48, 48)));
 	}
 
 }

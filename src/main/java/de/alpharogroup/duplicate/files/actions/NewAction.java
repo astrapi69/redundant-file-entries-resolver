@@ -16,7 +16,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JInternalFrame;
 
 import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
-import de.alpharogroup.duplicate.files.utils.JInternalFrameUtils;
+import de.alpharogroup.duplicate.files.utils.JInternalFrameExtensions;
 
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
@@ -50,7 +50,7 @@ public class NewAction extends AbstractAction {
 				true, true);
 
 		final FindDuplicateFilesView view = new FindDuplicateFilesView(new FindDuplicateFilesController());
-		JInternalFrameUtils.setViewAndControllerForJInternalFrame(internalFrame, view);
+		JInternalFrameExtensions.setViewAndControllerForJInternalFrame(internalFrame, view);
 		MainFrame.getInstance().getDesktopPane().add(internalFrame);
 		internalFrame.setVisible(true);
 		internalFrame.toFront();

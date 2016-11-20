@@ -14,30 +14,42 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
 import de.alpharogroup.duplicate.files.spring.SpringApplicationContext;
+import lombok.Getter;
 
 /**
  * The Class ProgressbarPanel.
  *
  * @author admin
  */
-@SuppressWarnings("serial")
-public class ProgressbarPanel extends javax.swing.JPanel {
+public class ProgressbarPanel extends JPanel {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The btn cancel. */
-	private javax.swing.JButton btnCancel;
+	@Getter
+	private JButton btnCancel;
 
 	/** The lbl info. */
-	private javax.swing.JLabel lblInfo;
+	@Getter
+	private JLabel lblInfo;
 
 	/** The pnl icon panel. */
-	private javax.swing.JPanel pnlIconPanel;
+	@Getter
+	private JPanel pnlIconPanel;
 
 	/** The prgr br task. */
-	private javax.swing.JProgressBar prgrBrTask;
+	@Getter
+	private JProgressBar prgrBrTask;
 
 	/**
 	 * Creates new form ProgressbarPanel.
@@ -55,22 +67,20 @@ public class ProgressbarPanel extends javax.swing.JPanel {
 		prgrBrTask = new javax.swing.JProgressBar();
 		btnCancel = new javax.swing.JButton();
 		lblInfo = new javax.swing.JLabel();
-		ApplicationContext ctx = SpringApplicationContext.getInstance()
-				.getApplicationContext();
-		Resource resource = ctx
-				.getResource("classpath:images/nico.gif");
+		final ApplicationContext ctx = SpringApplicationContext.getInstance().getApplicationContext();
+		final Resource resource = ctx.getResource("classpath:images/nico.gif");
 
 		File imageFile = null;
 		try {
 			imageFile = resource.getFile();
-		} catch (IOException e1) {
+		} catch (final IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		BufferedImage image = null;
 		try {
 			image = javax.imageio.ImageIO.read(imageFile);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -87,124 +97,39 @@ public class ProgressbarPanel extends javax.swing.JPanel {
 	 */
 	private void initLayout() {
 
-		javax.swing.GroupLayout pnlIconPanelLayout = new javax.swing.GroupLayout(
-				pnlIconPanel);
+		final javax.swing.GroupLayout pnlIconPanelLayout = new javax.swing.GroupLayout(pnlIconPanel);
 		pnlIconPanel.setLayout(pnlIconPanelLayout);
 		pnlIconPanelLayout.setHorizontalGroup(pnlIconPanelLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 44, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 44, Short.MAX_VALUE));
 		pnlIconPanelLayout.setVerticalGroup(pnlIconPanelLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 41, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 41, Short.MAX_VALUE));
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+		final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
-		layout
-				.setHorizontalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(
-												pnlIconPanel,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(18, 18, 18)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																lblInfo,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																334,
-																Short.MAX_VALUE)
-														.addGroup(
-																layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.TRAILING)
-																		.addComponent(
-																				btnCancel)
-																		.addComponent(
-																				prgrBrTask,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				334,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addContainerGap()));
-		layout
-				.setVerticalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addGap(21, 21, 21)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addComponent(
-																				lblInfo)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				prgrBrTask,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(
-																pnlIconPanel,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(18, 18, 18).addComponent(
-												btnCancel).addContainerGap()));
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(pnlIconPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(18, 18, 18)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addComponent(btnCancel).addComponent(prgrBrTask,
+												javax.swing.GroupLayout.PREFERRED_SIZE, 334,
+												javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap()));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+				.createSequentialGroup().addGap(21, 21, 21).addGroup(layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+						.addGroup(layout.createSequentialGroup().addComponent(lblInfo)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(prgrBrTask, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addComponent(pnlIconPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+				.addGap(18, 18, 18).addComponent(btnCancel).addContainerGap()));
 
-	}
-
-	/**
-	 * Gets the btn cancel.
-	 *
-	 * @return the btn cancel
-	 */
-	public javax.swing.JButton getBtnCancel() {
-		return btnCancel;
-	}
-
-	/**
-	 * Gets the lbl info.
-	 *
-	 * @return the lbl info
-	 */
-	public javax.swing.JLabel getLblInfo() {
-		return lblInfo;
-	}
-
-	/**
-	 * Gets the pnl icon panel.
-	 *
-	 * @return the pnl icon panel
-	 */
-	public javax.swing.JPanel getPnlIconPanel() {
-		return pnlIconPanel;
-	}
-
-	/**
-	 * Gets the prgr br task.
-	 *
-	 * @return the prgr br task
-	 */
-	public javax.swing.JProgressBar getPrgrBrTask() {
-		return prgrBrTask;
 	}
 
 }

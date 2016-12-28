@@ -86,8 +86,8 @@ public class MainFrame extends JXFrame {
 
 		final FindDuplicateFilesView view = new FindDuplicateFilesView(new FindDuplicateFilesController());
 		JInternalFrameExtensions.setViewAndControllerForJInternalFrame(internalFrame, view);
-		desktopPane.add(internalFrame);
-		internalFrame.setVisible(true);
+
+		JInternalFrameExtensions.addJInternalFrame(desktopPane, internalFrame);
 
 		getContentPane().add(desktopPane);
 

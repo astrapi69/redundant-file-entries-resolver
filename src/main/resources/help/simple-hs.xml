@@ -19,16 +19,16 @@
 		<label>Table of Contents</label>
 		<type>javax.help.TOCView</type>
 		<data>simple-toc.xml</data>
-	</view><!--
+	</view>
 
 	<view>
 		<name>Index</name>
 		<label>Index</label>
 		<type>javax.help.IndexView</type>
 		<data>findDuplicateFilesIndex.xml</data>
-	</view>
-
-	--><!--<view>
+	</view>	
+	<!-- -->
+	<!--<view>
 		<name>Search</name>
 		<label>Search</label>
 		<type>javax.help.SearchView</type>

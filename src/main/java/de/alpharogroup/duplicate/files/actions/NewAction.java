@@ -18,8 +18,8 @@ import javax.swing.JInternalFrame;
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
 import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
-import de.alpharogroup.duplicate.files.utils.JInternalFrameExtensions;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
+import de.alpharogroup.swing.utils.JInternalFrameExtensions;
 
 /**
  * The Class NewAction.

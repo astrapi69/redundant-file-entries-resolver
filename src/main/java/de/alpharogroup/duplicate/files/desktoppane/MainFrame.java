@@ -19,9 +19,9 @@ import org.jdesktop.swingx.JXFrame;
 
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
-import de.alpharogroup.duplicate.files.utils.JInternalFrameExtensions;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.laf.LookAndFeels;
+import de.alpharogroup.swing.utils.JInternalFrameExtensions;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -25,7 +25,7 @@
 ############################
 # launch4j generated files #
 ############################
-#/dist/launch4j/*.exe
+/dist/launch4j/*.exe
 
 #############
 # Zip files #

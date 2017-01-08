@@ -15,12 +15,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JInternalFrame;
 
-import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
-import de.alpharogroup.duplicate.files.utils.JInternalFrameExtensions;
-
 import de.alpharogroup.duplicate.files.controller.FindDuplicateFilesController;
 import de.alpharogroup.duplicate.files.desktoppane.MainFrame;
+import de.alpharogroup.duplicate.files.gen.view.FindDuplicateFilesView;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
+import de.alpharogroup.swing.utils.JInternalFrameExtensions;
 
 /**
  * The Class NewAction.
@@ -48,13 +47,9 @@ public class NewAction extends AbstractAction {
 		// create internal frame
 		final JInternalFrame internalFrame = JComponentFactory.newInternalFrame("Find duplicate files", true, true,
 				true, true);
-
 		final FindDuplicateFilesView view = new FindDuplicateFilesView(new FindDuplicateFilesController());
 		JInternalFrameExtensions.setViewAndControllerForJInternalFrame(internalFrame, view);
-		MainFrame.getInstance().getDesktopPane().add(internalFrame);
-		internalFrame.setVisible(true);
-		internalFrame.toFront();
-
+		JInternalFrameExtensions.addJInternalFrame(MainFrame.getInstance().getDesktopPane(), internalFrame);
 	}
 
 }

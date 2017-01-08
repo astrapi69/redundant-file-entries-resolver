@@ -23,6 +23,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 
 import de.alpharogroup.duplicate.files.spring.SpringApplicationContext;
+import de.alpharogroup.swing.panels.img.ImagePanel;
 import lombok.Getter;
 
 /**
@@ -68,7 +69,7 @@ public class ProgressbarPanel extends JPanel {
 		btnCancel = new javax.swing.JButton();
 		lblInfo = new javax.swing.JLabel();
 		final ApplicationContext ctx = SpringApplicationContext.getInstance().getApplicationContext();
-		final Resource resource = ctx.getResource("classpath:images/nico.gif");
+		final Resource resource = ctx.getResource("classpath:images/EngineHierarchy.PNG");
 
 		File imageFile = null;
 		try {

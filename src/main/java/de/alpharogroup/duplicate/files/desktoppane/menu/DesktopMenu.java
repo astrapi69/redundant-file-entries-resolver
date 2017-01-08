@@ -85,7 +85,7 @@ public class DesktopMenu {
 	 */
 	private DesktopMenu() {
 		menubar = new JMenuBar();
-		fileMenu = createFileMenu(new ActionListener() {
+		fileMenu = newFileMenu(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				System.out.println("filemenu");
@@ -119,7 +119,7 @@ public class DesktopMenu {
 	 *
 	 * @return the j menu
 	 */
-	private JMenu createFileMenu(final ActionListener listener) {
+	private JMenu newFileMenu(final ActionListener listener) {
 		final JMenu fileMenu = new JMenu("File");
 		fileMenu.setMnemonic('F');
 		JMenuItem jmi;

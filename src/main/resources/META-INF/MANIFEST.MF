@@ -3,5 +3,5 @@ Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
 Built-By: astrapi69
 Build-Jdk: 1.6.0_16
-Package: com.find.duplicate.files.desktoppane
+Package: de.alpharogroup.duplicate.files.desktoppane
 Main-Class: de.alpharogroup.duplicate.files.desktoppane.MainApplication

@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-ui-parent</artifactId>
-		<version>1.6.1</version>
+		<version>1.8.0-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>redundant-file-entries-resolver</artifactId>
-	<version>2.4.0</version>
+	<version>2.5.0-SNAPSHOT</version>
 
 	<properties>
 		<full-app-name>DuplicateFilesFinder</full-app-name>
@@ -19,6 +19,10 @@
 		<file-name-with-dependencies-path>${project.build.directory}/${file-name-with-dependencies}</file-name-with-dependencies-path>
 		<dist-path>${basedir}/dist/bin</dist-path>
 		<dist-target-file-name-path>${dist-path}/${full-app-name}.jar</dist-target-file-name-path>
+		<!-- PROFILE PROPERTIES -->
+		<maven-jar-plugin-packageName>de.alpharogroup.duplicate.files.desktoppane</maven-jar-plugin-packageName>
+		<maven-jar-plugin-mainClass>${maven-jar-plugin-packageName}.MainApplication</maven-jar-plugin-mainClass>
+		<maven-assembly-plugin-mainClass>${maven-jar-plugin-mainClass}</maven-assembly-plugin-mainClass>
 	</properties>
 
 	<dependencies>
@@ -301,8 +305,8 @@
 							<configuration>
 								<archive>
 									<manifest>
-										<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
-										<packageName>de.alpharogroup.duplicate.files.desktoppane</packageName>
+										<packageName>${maven-jar-plugin-packageName}</packageName>
+										<mainClass>${maven-jar-plugin-mainClass}</mainClass>
 									</manifest>
 									<manifestEntries>
 										<mode>development</mode>
@@ -323,7 +327,7 @@
 								</descriptorRefs>
 								<archive>
 									<manifest>
-										<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
+										<mainClass>${maven-assembly-plugin-mainClass}</mainClass>
 									</manifest>
 								</archive>
 								<excludes>

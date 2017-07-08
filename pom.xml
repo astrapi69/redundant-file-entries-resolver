@@ -15,13 +15,16 @@
 	<properties>
 		<full-app-name>DuplicateFilesFinder</full-app-name>
 		<info.appName>Duplicate-Files-Finder</info.appName>
+		<main-app-package-name>de.alpharogroup.duplicate.files.desktoppane</main-app-package-name>
+		<main-full-app-name>${main-app-package-name}.MainApplication</main-full-app-name>
+		<manifestFile-path>src/main/resources/META-INF/MANIFEST.MF</manifestFile-path>
 		<file-name-with-dependencies>${full-app-name}-jar-with-dependencies.jar</file-name-with-dependencies>
 		<file-name-with-dependencies-path>${project.build.directory}/${file-name-with-dependencies}</file-name-with-dependencies-path>
 		<dist-path>${basedir}/dist/bin</dist-path>
 		<dist-target-file-name-path>${dist-path}/${full-app-name}.jar</dist-target-file-name-path>
 		<!-- PROFILE PROPERTIES -->
-		<maven-jar-plugin-packageName>de.alpharogroup.duplicate.files.desktoppane</maven-jar-plugin-packageName>
-		<maven-jar-plugin-mainClass>${maven-jar-plugin-packageName}.MainApplication</maven-jar-plugin-mainClass>
+		<maven-jar-plugin-packageName>${main-app-package-name}</maven-jar-plugin-packageName>
+		<maven-jar-plugin-mainClass>${main-full-app-name}</maven-jar-plugin-mainClass>
 		<maven-assembly-plugin-mainClass>${maven-jar-plugin-mainClass}</maven-assembly-plugin-mainClass>
 	</properties>
 
@@ -213,14 +216,14 @@
 					<configuration>
 						<archive>
 							<manifest>
-								<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
-								<packageName>de.alpharogroup.duplicate.files.desktoppane</packageName>
+								<mainClass>${main-full-app-name}</mainClass>
+								<packageName>${main-app-package-name}</packageName>
 							</manifest>
 							<manifestEntries>
 								<mode>development</mode>
 								<url>${project.url}</url>
 							</manifestEntries>
-							<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+							<manifestFile>${manifestFile-path}</manifestFile>
 						</archive>
 					</configuration>
 				</plugin>
@@ -235,7 +238,7 @@
 						</descriptorRefs>
 						<archive>
 							<manifest>
-								<mainClass>de.alpharogroup.duplicate.files.desktoppane.MainApplication</mainClass>
+								<mainClass>${main-full-app-name}</mainClass>
 							</manifest>
 						</archive>
 						<excludes>
@@ -312,7 +315,7 @@
 										<mode>development</mode>
 										<url>${project.url}</url>
 									</manifestEntries>
-									<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+									<manifestFile>${manifestFile-path}</manifestFile>
 								</archive>
 							</configuration>
 						</plugin>

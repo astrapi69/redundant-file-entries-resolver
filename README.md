@@ -37,7 +37,7 @@ The source code for redundant-file-entries-resolver are on GitHub. Please feel f
 
 Create your own fork of [astrapi69/redundant-file-entries-resolver/fork](https://github.com/astrapi69/redundant-file-entries-resolver/fork)
 
-To share your changes, [submit a pull request](https://github.com/astrapi69/redundant-file-entries-resolver/pull/new/master).
+To share your changes, [submit a pull request](https://github.com/astrapi69/redundant-file-entries-resolver/pull/new/develop).
 
 Don't forget to add new units tests on your changes.
 
